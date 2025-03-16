@@ -151,7 +151,9 @@ class OneTimeOperationManager
      */
     public static function loadOperationsFrom($paths)
     {
-        self::$paths = array_merge(self::$paths, (array)$paths);
+        self::$paths = array_unique(
+            array_merge(self::$paths, (array)$paths)
+        );
     }
 
     public static function getOperationNameFromFilename(string $filename): string
